@@ -1,4 +1,4 @@
-loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter66/LMFAOOOO/main/test.lua"))()
+
 print("Anonyme @ V2")
 print("Welcome,"..game.Players.LocalPlayer.Name)
 print("Owner @ sc.ripter | Flamby @ Second Owner @ heclome | Nova")
@@ -2976,3 +2976,6 @@ end)
 	Tab:Show()
 	library:FormatWindows()
 end
+
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter66/LMFAOOOO/main/test.lua"))()
