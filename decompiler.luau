@@ -290,7 +290,7 @@ function DecompileFunction(func, excludename, indent, customname)
 end
 
 function DecompileScript(Script)
-    local Decompiled = "-- Decompiled With Anonyme"
+    local Decompiled = "-- Decompiled With Anonyme | Credit to SimpleDecompile Owner aka vxsty"
     if typeof(Script) == "Instance" and Script.ClassName == "ModuleScript" then
         local s, e =
             pcall(
