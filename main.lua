@@ -1,4 +1,4 @@
-wait(7)
+
 loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter66/LMFAOOOO/main/lmao.txt"))()
 print("Anonyme @ V2")
 print("Welcome,"..game.Players.LocalPlayer.Name)
@@ -2977,6 +2977,3 @@ end)
 	Tab:Show()
 	library:FormatWindows()
 end
-
-
-loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter66/LMFAOOOO/main/test.lua"))()
