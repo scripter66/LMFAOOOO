@@ -9,5 +9,10 @@ game:GetService("StarterGui"):SetCore("SendNotification",{
 	Text = "Welcome,"..game.Players.LocalPlayer.Name, -- Required
 })
 
-loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter66/LMFAOOOO/main/queutp.lua"))()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter66/LMFAOOOO/main/test.lua"))()
+
+getgenv().hookmetamethod = function()
+	return "soon"
+end
+
+loadstring(game:HttpGet("https://raw.githubusercontent.com/scripter66/LMFAOOOO/main/queutp.lua"))()
