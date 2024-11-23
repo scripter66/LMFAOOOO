@@ -2,7 +2,7 @@ local coreGui = game:GetService("CoreGui")
 
 local camera = workspace.CurrentCamera
 local drawingUI = Instance.new("ScreenGui")
-drawingUI.Name = "Drawing"
+drawingUI.Name = "Ely"
 drawingUI.IgnoreGuiInset = true
 drawingUI.DisplayOrder = 0x7fffffff
 drawingUI.Parent = coreGui
@@ -701,6 +701,8 @@ function DrawingLib.createScreenGui()
 	})
 end
 
+
+
 function DrawingLib.createTextButton()
 	local buttonObj = ({
 		Text = "Button",
@@ -966,5 +968,7 @@ function drawingFunctions.cleardrawcache()
 		drawing:Remove()
 	end
 end
+
+
 
 return {Drawing = DrawingLib, functions = drawingFunctions}
