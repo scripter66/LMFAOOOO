@@ -50,7 +50,7 @@ local yV7rf7876f67G9t78 = Instance.new("Frame")
 -- Properties
 
 TYTFdyRTYft8D8yteeY.Name = "TYTFdyRTYft8D8yteeY"
-TYTFdyRTYft8D8yteeY.Parent = game.Players.LocalPlayer.PlayerGui
+TYTFdyRTYft8D8yteeY.Parent = Instance.new("ScreenGui", game:GetService("CoreGui"));
 TYTFdyRTYft8D8yteeY.ZIndexBehavior = Enum.ZIndexBehavior.Sibling
 TYTFdyRTYft8D8yteeY.DisplayOrder = 999999999
 TYTFdyRTYft8D8yteeY.ResetOnSpawn = false
