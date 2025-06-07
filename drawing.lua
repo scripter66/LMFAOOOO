@@ -533,31 +533,36 @@ function DrawingLib.new(drawingType)
 	end
 end
 getgenv().Drawing = DrawingLib
-getgenv().isrenderobj = function(drawingObj)
-    local success, isrenderobj = pcall(function()
+getgenv().isrenderobj = newcclosure(function(drawingObj)
+	local success, isrenderobj = pcall(function()
 		return drawingObj.Parent == drawingUI
 	end)
-	if not success then return false end
-	return isrenderobj
-end
+	if not success then 
+		return false 
+	end
 
-getgenv().getrenderproperty = function(drawingObj, property)
-	local success, drawingProperty  = pcall(function()
+	return isrenderobj
+end)
+
+getgenv().getrenderproperty = newcclosure(function(drawingObj, property)
+	assert(drawingObj[property] ~= nil, tostring(property) .. " is not a valid property of " .. tostring(drawingObj), 2)
+	local success, drawingProperty = pcall(function()
 		return drawingObj[property]
 	end)
-	if not success then return end
-
-	if drawingProperty ~= nil then
+	if drawingProperty ~= nil and success then
 		return drawingProperty
 	end
-end
+	return error("Couldn't get the render property: " .. drawingProperty)
+end)
 
-getgenv().setrenderproperty = function(drawingObj, property, value)
-	assert(getgenv().getrenderproperty(drawingObj, property), "'" .. tostring(property) .. "' is not a valid property of " .. tostring(drawingObj) .. ", " .. tostring(typeof(drawingObj)))
+getgenv().setrenderproperty = newcclosure(function(drawingObj, property, value)
+	assert(getrenderproperty(drawingObj, property), tostring(property) .. " is not a valid property of " .. tostring(drawingObj), 2)
 	drawingObj[property]  = value
-end
+end)
 
-
-setrenderproperty = getgenv().setrenderproperty
-getrenderproperty = getgenv().getrenderproperty
-isrenderobj = getgenv().isrenderobj
+getgenv().cleardrawcache = newcclosure(function()
+	for _, drawing in drawingUI:GetDescendants() do
+		local suc, err = pcall(function() drawing:Remove() end)
+		assert(suc and not err, "Error cleaning the DrawingLib cache: " .. tostring(err), 2)
+	end
+end)
